@@ -1,6 +1,6 @@
 <template>
   <div>
-  <b-navbar class="text-center" toggleable="lg" type="dark" variant="dark">
+  <b-navbar class="d-flex justify-content-center" toggleable="lg" type="dark" variant="dark">
     <b-navbar-brand href="#">Library Images</b-navbar-brand>
   </b-navbar>
 </div>
