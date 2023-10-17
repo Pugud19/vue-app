@@ -1,25 +1,26 @@
 <template>
     <div>
       <div class="d-flex justify-content-center">
-      <b-icon icon="camera" font-scale="2"></b-icon>
-      <input type="file" class="my-5 mx-5" @change="uploadImage" accept=".jpg, .jpeg, .bmp, .png, .gif" />
+      <b-icon icon="camera" font-scale="2" class="my-5"></b-icon>
+      <input type="file" class="my-5 ml-1" @change="uploadImage" accept=".jpg, .jpeg, .bmp, .png, .gif" />
       </div>
       <div class="d-flex justify-content-center">
       <p v-if="uploadStatus === 'success'" class="my-5 mx-5 text-success">Gambar berhasil diunggah</p>
       <p v-if="uploadStatus === 'error'" class="my-5 mx-5 text-danger">Upload error</p>
       <p v-if="uploadStatus === 'invalid'" class="my-5 mx-5 text-danger">Hanya boleh file gambar</p>
-      <p v-if="uploadStatus === 'toolarge'" class="my-5 mx-5 text-warning">File gambar terlalu besar</p>
+      <p v-if="uploadStatus === 'toolarge'" class="my-5 mx-5 text-danger">File gambar terlalu besar</p>
       </div>
-      <div class="d-flex justify-content-center ">
-        <div v-for="image in uploadedImages" :key="image.id">
-        <img :src="image.url" class="border border-5 border-black mx-2 " style="max-width: 20rem; max-height: 20rem;" alt="Uploaded Image" />
+      <div class="image-row">
+      <div v-for="(image, index) in uploadedImages" :key="index" class="image-container">
+        <img :src="image.url" alt="Uploaded Image" class="border border-5 border-black mx-2 " style="width: 20rem; height: 20rem;"/>
+        <div v-if="index % 5 === 4" class="new-row" ></div>
       </div>
-      </div>
+    </div>
     </div>
   </template>
   
   <script>
-    import axios from 'axios'
+  import axios from 'axios'
   export default {
     name : 'AppImage',
     data() {
@@ -75,5 +76,24 @@
       this.uploadedImages = storedImages.map((url, id) => ({ id, url }));
     },
   };
+  
   </script>
+  
+  <style scoped>
+  .image-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .image-container {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .new-row {
+    width: 100%;
+  }
+  </style>
+ 
   
