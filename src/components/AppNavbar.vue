@@ -1,0 +1,17 @@
+<template>
+  <div>
+  <b-navbar class="text-center" toggleable="lg" type="dark" variant="dark">
+    <b-navbar-brand href="#">Library Images</b-navbar-brand>
+  </b-navbar>
+</div>
+</template>
+
+<script>
+export default {
+ name: 'AppNavbar'
+}
+</script>
+
+<style>
+
+</style>
