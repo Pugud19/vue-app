@@ -1,7 +1,7 @@
 <template>
   <div>
   <b-navbar class="d-flex justify-content-center" toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#">Library Images</b-navbar-brand>
+    <b-navbar-brand href="#">Library Images by pugud</b-navbar-brand>
   </b-navbar>
 </div>
 </template>

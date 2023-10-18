@@ -5,14 +5,14 @@
       <input type="file" class="my-5 ml-1" @change="uploadImage" accept=".jpg, .jpeg, .bmp, .png, .gif" />
       </div>
       <div class="d-flex justify-content-center">
-      <p v-if="uploadStatus === 'success'" class="my-5 mx-5 text-success">Gambar berhasil diunggah</p>
-      <p v-if="uploadStatus === 'error'" class="my-5 mx-5 text-danger">Upload error</p>
-      <p v-if="uploadStatus === 'invalid'" class="my-5 mx-5 text-danger">Hanya boleh file gambar</p>
-      <p v-if="uploadStatus === 'toolarge'" class="my-5 mx-5 text-danger">File gambar terlalu besar</p>
+      <p v-if="uploadStatus === 'success'" class="my-5 mx-5 text-success"><b-icon icon="exclamation-circle-fill" variant="success" class="pr-1"></b-icon>Gambar berhasil diunggah</p>
+      <p v-if="uploadStatus === 'error'" class="my-5 mx-5 text-danger"><b-icon icon="exclamation-circle-fill" variant="danger" class="pr-1"></b-icon>Upload error</p>
+      <p v-if="uploadStatus === 'invalid'" class="my-5 mx-5 text-danger"><b-icon icon="exclamation-circle-fill" variant="danger" class="pr-1"></b-icon>Hanya boleh file gambar</p>
+      <p v-if="uploadStatus === 'toolarge'" class="my-5 mx-5 text-danger"><b-icon icon="exclamation-circle-fill" variant="danger" class="pr-1"></b-icon>File gambar terlalu besar</p>
       </div>
       <div class="image-row">
       <div v-for="(image, index) in uploadedImages" :key="index" class="image-container">
-        <img :src="image.url" alt="Uploaded Image" class="border border-5 border-black mx-2 " style="width: 20rem; height: 20rem;"/>
+        <img :src="image.url" alt="Uploaded Image" class="border border-5 border-dark mx-2 rounded" style="width: 20rem; height: 20rem; object-fit: cover;"/>
         <div v-if="index % 5 === 4" class="new-row" ></div>
       </div>
     </div>
